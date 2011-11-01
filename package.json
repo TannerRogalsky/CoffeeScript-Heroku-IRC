@@ -1,5 +1,5 @@
 {
-  "name": "CoffeeScript Heroku Test",
+  "name": "CoffeeScript-Heroku-IRC",
   "version": "0.0.1",
   "dependencies": {
     "coffee-script": "1.1.2"
