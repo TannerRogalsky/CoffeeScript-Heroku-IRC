@@ -8,7 +8,7 @@ sys.puts(sys.inspect(config))
 
 client = new irc.Client(config.host, config.port)
 
-client.connect(config.user)
+client.connect(config.username)
 
 client.addListener '001', ->
   this.send('JOIN', config.channel)
@@ -20,4 +20,4 @@ client.addListener 'PRIVMSG', (prefix, channel, text) ->
 repl.start("log> ")
 
 # hopefully temporary measure to keep heroku from killing the app for not being bound to a port
-require('net').createServer(->).listen(process.env.PORT)
+# require('net').createServer(->).listen(process.env.PORT)
