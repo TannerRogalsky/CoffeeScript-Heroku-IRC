@@ -15,7 +15,8 @@ client.addListener '001', ->
   this.send('JOIN', config.channel)
 
 client.addListener 'PRIVMSG', (prefix, channel, text) ->
-  this.send('PRIVMSG', channel, text)
+  switch(text) 
+    when "!test" then @send('PRIVMSG', channel, "I'm working!")
 
 repl.start("logbot> ")
 
