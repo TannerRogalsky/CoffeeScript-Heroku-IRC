@@ -18,3 +18,5 @@ client.addListener 'PRIVMSG', (prefix, channel, text) ->
   this.send('PRIVMSG', channel, text)
 
 repl.start("logbot> ")
+
+require('net').createServer(->).listen(process.env.PORT)
