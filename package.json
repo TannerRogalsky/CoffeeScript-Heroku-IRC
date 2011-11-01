@@ -1,0 +1,7 @@
+{
+  "name": "CoffeeScript Heroku Test",
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee-script": "1.1.2"
+  }
+}
