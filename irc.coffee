@@ -14,10 +14,13 @@ client.addListener '001', ->
   this.send('JOIN', config.channel)
 
 client.addListener 'PRIVMSG', (prefix, channel, text) ->
-  switch(text) 
-    when "!test" then @send('PRIVMSG', channel, "I'm working!")
+  if /^!test/i.test(text)
+    @send('PRIVMSG', channel, "I'm working!")
+  else if /^!remember/i.test(text)
+    content = text.match /^\w+(.+)/
+    window.remember = content[1]
+  else if /^!tell me/i.test(text)
+    @send('PRIVMSG', channel, window.remember || "I don't know anything.")
+
 
 repl.start("log> ")
-
-# hopefully temporary measure to keep heroku from killing the app for not being bound to a port
-# require('net').createServer(->).listen(process.env.PORT)
